@@ -1,0 +1,97 @@
+<?php $this->view('messages'); ?>
+<div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="color-wrap">
+                        <div class="color-hd">
+                            <h2>Dashboard Sistem Informasi </h2>
+                            <p>Sistem Informasi Pengelolahan Kehartabendaan dan Wakaf di Lingkungan Pimpinan Cabang Muhammadiyah Piyungan</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                <div class="color-single nk-red" style="padding : 23px">
+                                    <h3><?=$this->home->getWakaf_barang()?><sup>Item</sup></h3> 
+                                    <span><a href="<?=site_url('wakaf/wakaf_barang')?>" style="color : #ffffff">Wakaf Barang <i class="fa fa-arrow-circle-right"></i></a></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                <div class="color-single nk-pink" style="padding : 23px">
+                                    <h3><?=$this->home->getWakaf_tanah()?><sup>Item</sup></h3> 
+                                    <span><a href="<?=site_url('wakaf/wakaf_tanah')?>" style="color : #ffffff">Wakaf Tanah <i class="fa fa-arrow-circle-right"></i></a></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                                <div class="color-single nk-purple" style="padding : 23px">
+                                    <h3><?=$this->home->getWakaf_uang()?><sup>Item</sup></h3> 
+                                    <span><a href="<?=site_url('wakaf/wakaf_uang')?>" style="color : #ffffff">Wakaf Uang <i class="fa fa-arrow-circle-right"></i></a></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <div class="color-single nk-indigo sm-res-mg-t-30 tb-res-mg-t-30 tb-res-mg-t-0">
+                                    <h2>Total Instansi</h2>
+                                    <p><?=$this->home->getRN()." Instansi"?></p>
+                                    <span><a href="<?=site_url('ranting')?>" style="color : #ffffff">Detail Info <i class="fa fa-arrow-circle-right"></i></a></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <div class="color-single nk-blue sm-res-mg-t-30 tb-res-mg-t-30 tb-res-mg-t-0">
+                                    <h2>Total Admin</h2>
+                                    <p><?=$this->home->getAD()." Orang"?></p>
+                                    <span><a href="<?=site_url('admin')?>" style="color : #ffffff">Detail Info <i class="fa fa-arrow-circle-right"></i></a></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <div class="color-single nk-deep-purple mg-t-30" style="padding : 23px">
+                                    <h3><?=$this->home->getaset_barang()?><sup>Item</sup></h3> 
+                                    <span><a href="<?=site_url('asset/aset_barang')?>" style="color : #ffffff">Aset Barang <i class="fa fa-arrow-circle-right"></i></a></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <div class="color-single nk-green mg-t-30" style="padding : 23px">
+                                    <h3><?=$this->home->getaset_tanah()?><sup>Item</sup></h3> 
+                                    <span><a href="<?=site_url('asset/aset_tanah')?>" style="color : #ffffff">Aset Tanah <i class="fa fa-arrow-circle-right"></i></a></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <div class="color-single nk-teal mg-t-30">
+                                    <h2><?=ucfirst($this->fungsi->user_login()->nama_admin)?></h2>
+                                    <p><?=ucfirst($this->fungsi->user_login()->alamat_ranting)?></p>
+                                    <span><?="Admin ".$this->fungsi->user_login()->nama_ranting?></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <div class="color-single nk-orange mg-t-30">
+                                    <h2 id="clock"></h2>
+                                    <p><?=$this->fungsi->hari()?>, <?=$this->fungsi->tgl()?></p>
+                                    <span><?=$this->fungsi->well()?></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<script type="text/javascript">
+    function showTime() {
+        var a_p = "";
+        var today = new Date();
+        var curr_hour = today.getHours();
+        var curr_minute = today.getMinutes();
+        var curr_second = today.getSeconds();
+        
+        curr_hour = checkTime(curr_hour);
+        curr_minute = checkTime(curr_minute);
+        curr_second = checkTime(curr_second);
+        document.getElementById('clock').innerHTML=curr_hour + " : " + curr_minute + " : " + curr_second + " WIB";
+        }
+
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+    setInterval(showTime, 500);
+</script>
+       

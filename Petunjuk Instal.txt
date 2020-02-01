@@ -1,0 +1,7 @@
+Aplikasi Sistem Informasi Pengelolaan Kehartabendaan dan Wakaf
+
+Instalasi : 
+1. Import Database dengan Nama 'siwakaf'
+2. jalankan dalam host 'localhost'
+
+id11525603_siwakaf
