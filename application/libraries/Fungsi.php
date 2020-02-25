@@ -192,6 +192,5 @@ Class Fungsi {
         shuffle($temp_array);
         return implode('', $temp_array);
     }
-} 
-
-?>
+    
+}

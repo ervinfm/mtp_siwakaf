@@ -1,29 +1,29 @@
 (function ($) {
- "use strict";
- 
-	 /*----------------------------------------*/
+	"use strict";
+
+	/*----------------------------------------*/
 	/*  1.  Area Chart
 	/*----------------------------------------*/
 	var ctx = document.getElementById("areachartfalse");
 	var areachartfalse = new Chart(ctx, {
 		type: 'line',
 		data: {
-			labels: ["January", "February", "March", "April"],
+			labels: ["January", "February", "March", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
 			datasets: [{
-				label: "My First dataset",
+				label: "",
 				fill: false,
-                backgroundColor: '#00c292',
+				backgroundColor: '#00c292',
 				borderColor: '#00c292',
 				data: [0, -20, 20, -20, 20, -20, 20]
-            }]
+			}]
 		},
 		options: {
 			responsive: true,
 			maintainAspectRatio: false,
 			spanGaps: false,
-			title:{
-				display:true,
-				text:'Area Chart Fill False'
+			title: {
+				display: true,
+				text: 'Trafic Pendataan Wakaf dan Kehartabendaan'
 			},
 			elements: {
 				line: {
@@ -45,8 +45,8 @@
 			}
 		}
 	});
-	
-	 /*----------------------------------------*/
+
+	/*----------------------------------------*/
 	/*  2.  Area Chart origin
 	/*----------------------------------------*/
 	var ctx = document.getElementById("areachartorigin");
@@ -57,18 +57,18 @@
 			datasets: [{
 				label: "My First dataset",
 				fill: 'origin',
-                backgroundColor: '#00c292',
+				backgroundColor: '#00c292',
 				borderColor: '#00c292',
 				data: [0, -20, 20, -20]
-            }]
+			}]
 		},
 		options: {
 			responsive: true,
 			maintainAspectRatio: false,
 			spanGaps: false,
-			title:{
-				display:true,
-				text:'Area Chart Fill origin'
+			title: {
+				display: true,
+				text: 'Area Chart Fill origin'
 			},
 			elements: {
 				line: {
@@ -90,7 +90,7 @@
 			}
 		}
 	});
-	 /*----------------------------------------*/
+	/*----------------------------------------*/
 	/*  3.  Area Chart start
 	/*----------------------------------------*/
 	var ctx = document.getElementById("areachartfillstart");
@@ -101,18 +101,18 @@
 			datasets: [{
 				label: "My First dataset",
 				fill: 'start',
-                backgroundColor: '#00c292',
+				backgroundColor: '#00c292',
 				borderColor: '#00c292',
 				data: [0, 10, 20, 30]
-            }]
+			}]
 		},
 		options: {
 			responsive: true,
 			maintainAspectRatio: false,
 			spanGaps: false,
-			title:{
-				display:true,
-				text:'Area Chart Fill start'
+			title: {
+				display: true,
+				text: 'Area Chart Fill start'
 			},
 			elements: {
 				line: {
@@ -134,9 +134,9 @@
 			}
 		}
 	});
-	
-	
-	 /*----------------------------------------*/
+
+
+	/*----------------------------------------*/
 	/*  4.  Area Chart end
 	/*----------------------------------------*/
 	var ctx = document.getElementById("areachartend");
@@ -147,18 +147,18 @@
 			datasets: [{
 				label: "My First dataset",
 				fill: 'end',
-                backgroundColor: '#00c292',
+				backgroundColor: '#00c292',
 				borderColor: '#00c292',
 				data: [100, 90, 70, 60]
-            }]
+			}]
 		},
 		options: {
 			responsive: true,
 			maintainAspectRatio: false,
 			spanGaps: false,
-			title:{
-				display:true,
-				text:'Area Chart Fill end'
+			title: {
+				display: true,
+				text: 'Area Chart Fill end'
 			},
 			elements: {
 				line: {
@@ -180,7 +180,7 @@
 			}
 		}
 	});
-	
-	 
-		
+
+
+
 })(jQuery); 

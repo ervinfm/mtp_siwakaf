@@ -1,34 +1,34 @@
 (function ($) {
- "use strict";
- 
-	 /*----------------------------------------*/
+	"use strict";
+
+	/*----------------------------------------*/
 	/*  1.  Basic Line Chart
 	/*----------------------------------------*/
 	var ctx = document.getElementById("basiclinechart");
 	var basiclinechart = new Chart(ctx, {
 		type: 'line',
 		data: {
-			labels: ["January", "February", "March"],
+			labels: ["January", "February", "March", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
 			datasets: [{
 				label: "My First dataset",
 				fill: false,
-                backgroundColor: '#00c292',
+				backgroundColor: '#00c292',
 				borderColor: '#00c292',
 				data: [9, 12, 19]
-            }, {
-                label: "My Second dataset",
+			}, {
+				label: "My Second dataset",
 				fill: false,
-                backgroundColor: '#fb9678',
+				backgroundColor: '#fb9678',
 				borderColor: '#fb9678',
 				data: [-12, -3, -4]
-				
-		}]
+
+			}]
 		},
 		options: {
 			responsive: true,
-			title:{
-				display:true,
-				text:'Basic Line Chart'
+			title: {
+				display: true,
+				text: 'Basic Line Chart'
 			},
 			tooltips: {
 				mode: 'index',
@@ -56,11 +56,11 @@
 			}
 		}
 	});
-	
+
 	/*----------------------------------------*/
 	/*  2.  Line Chart Interpolation
 	/*----------------------------------------*/
-	
+
 	var ctx = document.getElementById("linechartinterpolation");
 	var linechartinterpolation = new Chart(ctx, {
 		type: 'line',
@@ -69,24 +69,24 @@
 			datasets: [{
 				label: "Cubic interpolation",
 				fill: false,
-                backgroundColor: '#00c292',
+				backgroundColor: '#00c292',
 				borderColor: '#00c292',
 				data: [0, 15, 17, 200, 0, 12, -200, 5, 200, 8, 200, 12, 200],
 				cubicInterpolationMode: 'monotone'
-            }, {
-                label: "Cubic interpolation",
+			}, {
+				label: "Cubic interpolation",
 				fill: false,
-                backgroundColor: '#fb9678',
+				backgroundColor: '#fb9678',
 				borderColor: '#fb9678',
 				data: [-100, 200, 12, -200, 12, 200, 8, -200, 9, 200, -200, -12, -200]
-				
-		}]
+
+			}]
 		},
 		options: {
 			responsive: true,
-			title:{
-				display:true,
-				text:'Line Chart interpolation'
+			title: {
+				display: true,
+				text: 'Line Chart interpolation'
 			},
 			tooltips: {
 				mode: 'index'
@@ -112,12 +112,12 @@
 			}
 		}
 	});
-	
-	
+
+
 	/*----------------------------------------*/
 	/*  3.  Line Chart styles
 	/*----------------------------------------*/
-	
+
 	var ctx = document.getElementById("linechartstyles");
 	var linechartstyles = new Chart(ctx, {
 		type: 'line',
@@ -126,24 +126,24 @@
 			datasets: [{
 				label: "Unfilled",
 				fill: false,
-                backgroundColor: '#01c0c8',
+				backgroundColor: '#01c0c8',
 				borderColor: '#01c0c8',
 				data: [0, 15, 17, 200, 0, 12]
-            }, {
-                label: "Dashed",
+			}, {
+				label: "Dashed",
 				fill: false,
-                backgroundColor: '#fb9678',
+				backgroundColor: '#fb9678',
 				borderColor: '#fb9678',
 				borderDash: [5, 5],
 				data: [-100, 200, 12, -200, 12]
-				
-		}]
+
+			}]
 		},
 		options: {
 			responsive: true,
-			title:{
-				display:true,
-				text:'Line Chart Style'
+			title: {
+				display: true,
+				text: 'Line Chart Style'
 			},
 			tooltips: {
 				mode: 'index',
@@ -174,7 +174,7 @@
 	/*----------------------------------------*/
 	/*  4.  Line Chart point circle
 	/*----------------------------------------*/
-	
+
 	var ctx = document.getElementById("linechartpointcircle");
 	var linechartpointcircle = new Chart(ctx, {
 		type: 'line',
@@ -188,14 +188,14 @@
 				fill: false,
 				pointRadius: 4,
 				pointHoverRadius: 10,
-				showLine: false 
+				showLine: false
 			}]
 		},
 		options: {
 			responsive: true,
-			title:{
-				display:true,
-				text:'Line Chart Point Circle'
+			title: {
+				display: true,
+				text: 'Line Chart Point Circle'
 			},
 			legend: {
 				display: false
@@ -207,7 +207,7 @@
 			}
 		}
 	});
-	
-	
-		
+
+
+
 })(jQuery); 

@@ -1,6 +1,6 @@
 (function ($) {
- "use strict";
-	 /*----------------------------------------*/
+	"use strict";
+	/*----------------------------------------*/
 	/*  1.  Bar Chart
 	/*----------------------------------------*/
 
@@ -8,7 +8,7 @@
 	var barchart1 = new Chart(ctx, {
 		type: 'bar',
 		data: {
-			labels: ["Red", "Blue", "Yellow", "Green"],
+			labels: [],
 			datasets: [{
 				label: 'Bar Chart',
 				data: [12, 19, 3, 5, 2, 3],
@@ -31,7 +31,7 @@
 			scales: {
 				yAxes: [{
 					ticks: {
-						beginAtZero:true
+						beginAtZero: true
 					}
 				}]
 			}
@@ -46,10 +46,10 @@
 		data: {
 			labels: ["January", "February"],
 			datasets: [{
-                label: 'Dataset 1',
+				label: 'Dataset 1',
 				data: [150, 170],
 				borderWidth: 1,
-                backgroundColor: [
+				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgb(50,205,50, 0.2)'
 				],
@@ -57,10 +57,10 @@
 					'rgba(255,99,132,1)',
 					'rgba(54, 162, 235, 1)'
 				],
-            }, {
-                label: 'Dataset 2',
+			}, {
+				label: 'Dataset 2',
 				data: [-188, -177],
-                backgroundColor: [
+				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgb(50,205,50, 0.2)'
 				],
@@ -69,7 +69,7 @@
 					'rgba(54, 162, 235, 1)'
 				],
 				borderWidth: 1
-            }]
+			}]
 		},
 		options: {
 			responsive: true,
@@ -91,10 +91,10 @@
 		data: {
 			labels: ["May", "June"],
 			datasets: [{
-                label: 'Dataset 1',
+				label: 'Dataset 1',
 				data: [3, 9],
 				borderWidth: 1,
-                backgroundColor: [
+				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgb(50,205,50, 0.2)'
 				],
@@ -102,10 +102,10 @@
 					'rgba(255,99,132,1)',
 					'rgba(54, 162, 235, 1)'
 				],
-            }, {
-                label: 'Dataset 2',
+			}, {
+				label: 'Dataset 2',
 				data: [-9, -15],
-                backgroundColor: [
+				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgb(50,205,50, 0.2)'
 				],
@@ -114,7 +114,7 @@
 					'rgba(54, 162, 235, 1)'
 				],
 				borderWidth: 1
-            }]
+			}]
 		},
 		options: {
 			responsive: true,
@@ -127,7 +127,7 @@
 			}
 		}
 	});
-	
+
 	/*----------------------------------------*/
 	/*  4.  Bar Chart Multi axis
 	/*----------------------------------------*/
@@ -137,11 +137,11 @@
 		data: {
 			labels: ["March", "April"],
 			datasets: [{
-                label: 'Dataset 1',
+				label: 'Dataset 1',
 				data: [12, 19, 3, 5, 2, 3, 9],
 				borderWidth: 1,
 				yAxisID: "y-axis-1",
-                backgroundColor: [
+				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgb(50,205,50, 0.2)',
 					'rgba(255, 206, 86, 0.2)',
@@ -157,12 +157,12 @@
 					'rgba(153, 102, 255, 1)',
 					'rgba(255, 159, 64, 1)'
 				],
-            }, {
-                label: 'Dataset 2',
+			}, {
+				label: 'Dataset 2',
 				data: [-3, -6, -5, -9, -15, -20],
 				borderWidth: 1,
 				yAxisID: "y-axis-2",
-                backgroundColor: [
+				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgb(50,205,50, 0.2)',
 					'rgba(255, 206, 86, 0.2)',
@@ -178,14 +178,14 @@
 					'rgba(153, 102, 255, 1)',
 					'rgba(255, 159, 64, 1)'
 				],
-				
-            }]
+
+			}]
 		},
 		options: {
 			responsive: true,
-			title:{
-				display:true,
-				text:"Bar Chart Multi Axis"
+			title: {
+				display: true,
+				text: "Bar Chart Multi Axis"
 			},
 			tooltips: {
 				mode: 'index',
@@ -209,7 +209,7 @@
 			}
 		}
 	});
-	
-	
-		
+
+
+
 })(jQuery); 
