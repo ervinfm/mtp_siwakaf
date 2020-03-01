@@ -61,7 +61,7 @@
                                     <img src="<?= base_url() ?>assets/img/post/12.png" style="width: 60px">
                                 </div>
                                 <div class="recent-post-it-ctn">
-                                    <h2><?= $data->nama_admin ?> (<?= $data->is_online == 1 ? 'Online' : 'Offline' ?>)</h2>
+                                    <h2><?= $data->nama_admin ?> <?= $data->is_online == 1 ? '<a data-toggle="tooltip" data-placement="top" title="" data-original-title="Online"><i class="notika-icon notika-dot" style="color: green"></i><a>' : '<a data-toggle="tooltip" data-placement="top" title="" data-original-title="Offline"><i class="notika-icon notika-dot" style="color: red"></i><a>' ?></h2>
                                     <p><?= $data->nama_ranting ?></p>
                                 </div>
                             </div>

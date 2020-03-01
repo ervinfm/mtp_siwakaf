@@ -18,7 +18,7 @@
                     <th>Lokasi Tanah</th>
                     <th>Rician Tanah</th>
                     <th>Berita Acara</th>
-                    <th width="150px">Action</th>
+                    <th width="200px">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -130,11 +130,13 @@
                             <a href="#" onclick="return confirm_delete()" class="btn btn-danger danger-icon-notika waves-effect btn-sm">
                                 <i class="fa fa-trash-o"></i> Hapus
                             </a>
+                            <a href="#" onclick="return confirm_riwayat()" data-toggle="tooltip" title="" data-original-title="Periwayatan Data" class="btn btn-lime lime-icon-notika waves-effect btn-sm"><i class="fa fa-history"></i></a>
+                            <!-- JS Confirm Hapus data -->
                             <script>
                                 function confirm_delete() {
                                     Swal.fire({
                                         title: 'Yakin Menghapus data ?',
-                                        text: "data yang dihapus akan dipindahkan ke riwayat !",
+                                        text: "data yang dihapus tidak akan diriwayatkan !",
                                         icon: 'warning',
                                         showCancelButton: true,
                                         confirmButtonColor: '#3085d6',
@@ -147,6 +149,30 @@
                                             Swal.fire(
                                                 'Batal Hapus',
                                                 'Penghapusan data dibatalkan',
+                                                'success'
+                                            )
+                                        }
+                                    });
+                                }
+                            </script>
+                            <!-- Js Confirm Periwayatan Data -->
+                            <script>
+                                function confirm_riwayat() {
+                                    Swal.fire({
+                                        title: 'Yakin Meriwayatkan data ?',
+                                        text: "data yang diriwayatkan akan dipindahkan ke daftar riwayat Aset !",
+                                        icon: 'warning',
+                                        showCancelButton: true,
+                                        confirmButtonColor: '#3085d6',
+                                        cancelButtonColor: '#d33',
+                                        confirmButtonText: 'Ya, riwayatkan'
+                                    }).then((result) => {
+                                        if (result.value) {
+                                            window.location = "<?= site_url('asset/aset_tanah/riwayat/' . $data->id_aset_tanah) ?>";
+                                        } else {
+                                            Swal.fire(
+                                                'Batal ',
+                                                'Periwayatan data dibatalkan',
                                                 'success'
                                             )
                                         }

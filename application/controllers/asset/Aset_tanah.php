@@ -176,4 +176,32 @@ class Aset_tanah extends CI_Controller
 		$qrCode->writeFile('uploads/aset_tanah/qrCode/' . $id . '.png');
 		redirect('asset/aset_tanah');
 	}
+
+	public function riwayat($id)
+	{
+		$aset = $this->aset_tanah_m->get($id)->row();
+
+		$params = [
+			'id_riwayat_aset' => 'aset-' . substr(md5(rand()), 0, 10),
+			'instansi' => $aset->nama_ranting,
+			'nama_aset' => 'Sertifikat no ' . $aset->aset_akta_tanah . '',
+			'harga_aset' => $aset->harga_tanah,
+			'jumlah_aset' => $aset->luas_tanah . ' M <sup>2</sup>',
+			'tgl_masuk_aset' => $aset->tgl_masuk_tanah,
+			'jenis_aset' => 'Tanah'
+		];
+
+		$this->aset_tanah_m->set_riwayat($params);
+		if ($this->db->affected_rows() > 0) {
+			if ($aset->dokumentasi != null) {
+				$target_file = './uploads/aset_tanah/' . $aset->dokumentasi;
+				unlink($target_file);
+			}
+			$this->aset_tanah_m->del($id);
+			$this->session->set_flashdata('succes', " Data berhasil di Riwayatkan ");
+		} else {
+			$this->session->set_flashdata('error', " Data gagal di Riwayatkan ");
+		}
+		redirect('asset/aset_tanah');
+	}
 }

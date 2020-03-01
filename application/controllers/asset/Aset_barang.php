@@ -175,4 +175,32 @@ class Aset_barang extends CI_Controller
 		$qrCode->writeFile('uploads/aset_barang/qrCode/' . $id . '.png');
 		redirect('asset/aset_barang');
 	}
+
+	public function riwayat($id)
+	{
+		$aset = $this->aset_barang_m->get($id)->row();
+
+		$params = [
+			'id_riwayat_aset' => 'aset-' . substr(md5(rand()), 0, 10),
+			'instansi' => $aset->nama_ranting,
+			'nama_aset' => $aset->nama_aset,
+			'harga_aset' => $aset->harga_aset,
+			'jumlah_aset' => $aset->jumlah_aset . ' Unit',
+			'tgl_masuk_aset' => $aset->tgl_masuk_aset,
+			'jenis_aset' => 'Barang'
+		];
+
+		$this->aset_barang_m->set_riwayat($params);
+		if ($this->db->affected_rows() > 0) {
+			if ($aset->gambar_aset != null) {
+				$target_file = './uploads/aset_barang/' . $aset->gambar_aset;
+				unlink($target_file);
+			}
+			$this->aset_barang_m->del($id);
+			$this->session->set_flashdata('succes', " Data berhasil di Riwayatkan ");
+		} else {
+			$this->session->set_flashdata('error', " Data gagal di Riwayatkan ");
+		}
+		redirect('asset/aset_barang');
+	}
 }

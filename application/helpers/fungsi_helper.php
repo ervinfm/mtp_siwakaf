@@ -57,9 +57,3 @@ function set_logout()
 
     $ci->user_m->set_logout($id);
 }
-
-function convert_rupiah($nominal)
-{
-    $hasil = "Rp " . number_format($nominal, 2, ',', '.');
-    return $hasil;
-}

@@ -68,6 +68,17 @@
 
     <script src="<?= site_url() ?>assets/js/vendor/modernizr-2.8.3.min.js"></script>
     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'> </script>
+
+    <style>
+        .auto {
+            display: block;
+            padding: 5px;
+            margin-top: 5px;
+            width: 100%;
+            height: 500px;
+            overflow: auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -85,6 +96,11 @@
                             <li>
                                 <a href="#" data-toggle="modal" data-target="#myModaleleven" role="button">
                                     <span><i class="notika-icon notika-menus"></i></span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url('forum') ?>" class="nav-link dropdown-toggle">
+                                    <span><i class="notika-icon notika-chat"></i></span>
                                 </a>
                             </li>
                         </ul>
@@ -136,7 +152,7 @@
                         </li>
                     </ul>
                     <div class="tab-content custom-menu-content">
-                        <div id="harta" class="tab-pane in  <?= $this->uri->segment(2) == 'aset_barang' || $this->uri->segment(2) == 'aset_tanah' || $this->uri->segment(2) == 'rekap_aset' ? 'active' : null ?>  notika-tab-menu-bg animated flipInX">
+                        <div id="harta" class="tab-pane in  <?= $this->uri->segment(2) == 'aset_barang' || $this->uri->segment(2) == 'aset_tanah' || $this->uri->segment(2) == 'rekap_aset' || $this->uri->segment(2) == 'riwayat_aset' ? 'active' : null ?>  notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li>
                                     <a href="<?= site_url('asset/aset_barang') ?>">Aset Barang</a>
@@ -146,6 +162,9 @@
                                 </li>
                                 <li>
                                     <a href="<?= site_url('asset/rekap_aset') ?>">Rekapitulasi Aset</a>
+                                </li>
+                                <li>
+                                    <a href="<?= site_url('asset/riwayat_aset') ?>">Riwayat Aset</a>
                                 </li>
                             </ul>
                         </div>
