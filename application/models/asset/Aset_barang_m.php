@@ -38,9 +38,11 @@ class Aset_barang_m extends CI_Model
                'harga_aset' => $post['harga_b'],
                'jumlah_aset' => $post['jumlah_b'],
                'keterangan' => $post['ket_b'],
-               'gambar_aset' => $post['image'],
                'tgl_masuk_aset' => $post['tgl_b']
           ];
+          if ($post['image'] != null) {
+               $params['gambar_aset'] = $post['image'];
+          }
           $this->db->insert('tb_aset_barang', $params);
      }
 
