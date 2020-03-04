@@ -6,7 +6,9 @@
                 <?php if ($row->num_rows() > 0) { ?>
                     <div class="basic-tb-hd" style="padding-bottom : 20px">
                         <h2>Rincian Login Admin (<?= @$row->row()->nama_admin ?>)</h2><small><i> (Data otomatis dihapus jika lebih dari 1000 data)</i></small>
-                        <a href="<?= site_url('dashboard') ?>" class="btn btn-info primary-icon-notika waves-effect pull-right mb-2"><i class="notika-icon notika-house"></i></a>
+                        <?php if ($row->row()->is_online == 1) { ?>
+                            <a onclick="return confirm_logout()" class="btn btn-danger danger-icon-notika waves-effect pull-right mb-2"><i class="notika-icon notika-close"></i> Paksa Logout </a>
+                        <?php } ?>
                     </div>
                     <div class="table-responsive">
                         <table id="data-table-basic" class="table table-striped">
@@ -54,3 +56,27 @@
         </div>
     </div>
 </div>
+<!-- Js Confirm Periwayatan Data -->
+<script>
+    function confirm_logout() {
+        Swal.fire({
+            title: 'Yakin logout <?= $row->row()->nama_admin; ?> ?',
+            text: "User akan otomatis tidak dapat mengakses sistem sebelum login kembali",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Logoutkan'
+        }).then((result) => {
+            if (result.value) {
+                window.location = '<?= site_url('admin/paksa_logout/' . $row->row()->id_admin) ?>';
+            } else {
+                Swal.fire(
+                    'Batal ',
+                    'Periwayatan data dibatalkan',
+                    'success'
+                )
+            }
+        });
+    }
+</script>

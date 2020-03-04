@@ -182,4 +182,12 @@ class Admin extends CI_Controller
 		$data['row'] = $sql;
 		$this->template->load('template', 'admin/admin_log_login', $data);
 	}
+
+	public function paksa_logout($id)
+	{
+		$params['is_online'] = 0;
+		$this->db->where('id_admin', $id);
+		$this->db->update('tb_admin', $params);
+		redirect('admin/get_log_login/' . $id);
+	}
 }
