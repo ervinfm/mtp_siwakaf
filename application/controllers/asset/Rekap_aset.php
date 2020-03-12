@@ -7,6 +7,7 @@ class Rekap_aset extends CI_Controller
     {
         parent::__construct();
         check_not_login();
+        check_login();
         $this->load->model('asset/rekap_aset_m');
         $this->load->model('ranting_m');
     }

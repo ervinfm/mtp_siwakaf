@@ -99,7 +99,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?= site_url('forum') ?>" class="nav-link dropdown-toggle">
+                                <a href="<?= site_url('forum') ?>" class="nav-link dropdown-toggle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Forum Administrator">
                                     <span><i class="notika-icon notika-chat"></i></span>
                                 </a>
                             </li>
@@ -168,7 +168,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="wakaf" class="tab-pane in  <?= $this->uri->segment(2) == 'wakaf_barang' || $this->uri->segment(2) == 'wakaf_tanah' || $this->uri->segment(2) == 'wakaf_uang' || $this->uri->segment(2) == 'rekap_wakaf' ? 'active' : null ?>  notika-tab-menu-bg animated flipInX">
+                        <div id="wakaf" class="tab-pane in  <?= $this->uri->segment(2) == 'wakaf_barang' || $this->uri->segment(2) == 'wakaf_tanah' || $this->uri->segment(2) == 'wakaf_uang' || $this->uri->segment(2) == 'rekap_wakaf' | $this->uri->segment(2) == 'riwayat_wakaf' ? 'active' : null ?>  notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li>
                                     <a href="<?= site_url('wakaf/wakaf_barang') ?>">Wakaf Barang</a>
@@ -181,6 +181,9 @@
                                 </li>
                                 <li>
                                     <a href="<?= site_url('wakaf/rekap_wakaf') ?>">Rekapitulasi Wakaf</a>
+                                </li>
+                                <li>
+                                    <a href="<?= site_url('wakaf/riwayat_wakaf') ?>">Riwayat Wakaf</a>
                                 </li>
                             </ul>
                         </div>

@@ -57,3 +57,24 @@ function set_logout()
 
     $ci->user_m->set_logout($id);
 }
+
+function check_login()
+{
+    $ci = &get_instance();
+    $ci->load->model('user_m');
+    $sql = $ci->user_m->get($ci->session->userdata('userid'))->row();
+
+    if ($sql->status == 1) {
+        if ($sql->is_online == 0) {
+            echo "<script>
+                alert('Maaf, Anda Di Logout oleh sistem, silahkan login kembali');
+                window.location = '" . site_url('auth/logout') . "';
+            </script>";
+        }
+    } else {
+        echo "<script>
+                alert('Maaf, Akun Anda Dinonaktifkan oleh sistem, silahkan hubungi Admin');
+                window.location = '" . site_url('auth/logout') . "';
+            </script>";
+    }
+}

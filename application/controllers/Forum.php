@@ -7,6 +7,7 @@ class Forum extends CI_Controller
     {
         parent::__construct();
         check_not_login();
+        check_login();
         $this->load->model('admin_m');
         $this->load->model('forum_m');
     }

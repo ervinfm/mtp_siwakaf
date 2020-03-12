@@ -6,7 +6,7 @@
                 <?php if ($row->num_rows() > 0) { ?>
                     <div class="basic-tb-hd" style="padding-bottom : 20px">
                         <h2>Rincian Login Admin (<?= @$row->row()->nama_admin ?>)</h2><small><i> (Data otomatis dihapus jika lebih dari 1000 data)</i></small>
-                        <?php if ($row->row()->is_online == 1) { ?>
+                        <?php if ($row->row()->is_online == 1 && $row->row()->level == 2) { ?>
                             <a onclick="return confirm_logout()" class="btn btn-danger danger-icon-notika waves-effect pull-right mb-2"><i class="notika-icon notika-close"></i> Paksa Logout </a>
                         <?php } ?>
                     </div>
@@ -58,6 +58,10 @@
 </div>
 <!-- Js Confirm Periwayatan Data -->
 <script>
+    setTimeout(function() {
+        window.location.reload(1);
+    }, 5000);
+
     function confirm_logout() {
         Swal.fire({
             title: 'Yakin logout <?= $row->row()->nama_admin; ?> ?',
@@ -73,7 +77,7 @@
             } else {
                 Swal.fire(
                     'Batal ',
-                    'Periwayatan data dibatalkan',
+                    'Logout Paksa dibatalkan',
                     'success'
                 )
             }

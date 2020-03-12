@@ -20,45 +20,33 @@ class Home
         return $user_data;
     }
 
-    function getAD()
+    function getWakaf_barang($id = null)
     {
-        $data = $this->ci->admin_m->get()->num_rows();
+        $data = $this->ci->wakaf_barang_m->get_view(@$id)->num_rows();
         return $data;
     }
 
-    function getRN()
+    function getWakaf_tanah($id = null)
     {
-        $data = $this->ci->ranting_m->get_ranting()->num_rows();
+        $data = $this->ci->wakaf_tanah_m->get_view(@$id)->num_rows();
         return $data;
     }
 
-    function getWakaf_barang()
+    function getWakaf_uang($id = null)
     {
-        $data = $this->ci->wakaf_barang_m->get_view()->num_rows();
+        $data = $this->ci->wakaf_uang_m->get_view(@$id)->num_rows();
         return $data;
     }
 
-    function getWakaf_tanah()
+    function getaset_barang($id = null)
     {
-        $data = $this->ci->wakaf_tanah_m->get_view()->num_rows();
+        $data = $this->ci->aset_barang_m->get_view(@$id)->num_rows();
         return $data;
     }
 
-    function getWakaf_uang()
+    function getaset_tanah($id = null)
     {
-        $data = $this->ci->wakaf_uang_m->get_view()->num_rows();
-        return $data;
-    }
-
-    function getaset_barang()
-    {
-        $data = $this->ci->aset_barang_m->get_view()->num_rows();
-        return $data;
-    }
-
-    function getaset_tanah()
-    {
-        $data = $this->ci->aset_tanah_m->get_view()->num_rows();
+        $data = $this->ci->aset_tanah_m->get_view(@$id)->num_rows();
         return $data;
     }
 
@@ -79,15 +67,29 @@ class Home
         return $data = $wakaf1 + $wakaf2 + $wakaf3;
     }
 
-    function get_count_aset()
+    function get_count_aset($id = null)
     {
-        $sql_barang = $this->ci->db->get('tb_aset_barang');
+        if ($id != null) {
+            $this->ci->db->from('tb_aset_barang');
+            $this->ci->db->where('id_ranting', $id);
+            $sql_barang = $this->ci->db->get();
+        } else {
+            $sql_barang = $this->ci->db->get('tb_aset_barang');
+        }
+
         $temp_barang = 0;
         foreach ($sql_barang->result() as $key => $barang) {
             $temp_barang += ($barang->harga_aset * $barang->jumlah_aset);
         }
 
-        $sql_tanah = $this->ci->db->get('tb_aset_tanah');
+        if ($id != null) {
+            $this->ci->db->from('tb_aset_tanah');
+            $this->ci->db->where('id_ranting', $id);
+            $sql_tanah = $this->ci->db->get();
+        } else {
+            $sql_tanah = $this->ci->db->get('tb_aset_tanah');
+        }
+
         $temp_tanah = 0;
         foreach ($sql_tanah->result() as $key => $tanah) {
             $temp_tanah += $tanah->harga_tanah;
@@ -96,21 +98,39 @@ class Home
         return $temp_barang + $temp_tanah;
     }
 
-    function get_count_wakaf()
+    function get_count_wakaf($id = null)
     {
-        $sql_barang = $this->ci->db->get('tb_wakaf_barang');
+        if ($id != null) {
+            $this->ci->db->from('tb_wakaf_barang');
+            $this->ci->db->where('id_ranting', $id);
+            $sql_barang = $this->ci->db->get();
+        } else {
+            $sql_barang = $this->ci->db->get('tb_wakaf_barang');
+        }
         $temp_barang = 0;
         foreach ($sql_barang->result() as $key => $barang) {
             $temp_barang += ($barang->nilai_barang * $barang->jumlah_barang);
         }
 
-        $sql_tanah = $this->ci->db->get('tb_wakaf_tanah');
+        if ($id != null) {
+            $this->ci->db->from('tb_wakaf_tanah');
+            $this->ci->db->where('id_ranting', $id);
+            $sql_tanah = $this->ci->db->get();
+        } else {
+            $sql_tanah = $this->ci->db->get('tb_wakaf_tanah');
+        }
         $temp_tanah = 0;
         foreach ($sql_tanah->result() as $key => $tanah) {
             $temp_tanah += $tanah->harga_tanah;
         }
 
-        $sql_uang = $this->ci->db->get('tb_wakaf_uang');
+        if ($id != null) {
+            $this->ci->db->from('tb_wakaf_uang');
+            $this->ci->db->where('id_ranting', $id);
+            $sql_uang = $this->ci->db->get();
+        } else {
+            $sql_uang = $this->ci->db->get('tb_wakaf_uang');
+        }
         $temp_uang = 0;
         foreach ($sql_uang->result() as $key => $uang) {
             $temp_uang += $uang->nilai_wakaf;

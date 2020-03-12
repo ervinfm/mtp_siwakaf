@@ -7,6 +7,7 @@ class Riwayat_aset extends CI_Controller
     {
         parent::__construct();
         check_not_login();
+        check_login();
     }
 
     public function index()

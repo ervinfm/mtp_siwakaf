@@ -41,3 +41,15 @@
         <a href="<?= site_url('forum/reset') ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Reset Forum </a>
     <?php } ?>
 </div>
+
+<script>
+    function loadMassage() {
+        $.ajax({
+            type: 'GET',
+            url: '<?php echo base_url() ?>forum/index',
+            success: function(html) {
+                $("#chat").html(html);
+            }
+        })
+    }
+</script>

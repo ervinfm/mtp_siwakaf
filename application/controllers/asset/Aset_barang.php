@@ -7,6 +7,7 @@ class Aset_barang extends CI_Controller
 	{
 		parent::__construct();
 		check_not_login();
+		check_login();
 		$this->load->model('asset/aset_barang_m');
 		$this->load->model('ranting_m');
 	}
