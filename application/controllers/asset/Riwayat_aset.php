@@ -25,4 +25,22 @@ class Riwayat_aset extends CI_Controller
         $data['row'] = $sql;
         $this->load->view('aset/cetak_riwayat', $data);
     }
+
+    public function del()
+    {
+        if ($_POST['id'] != null) {
+            foreach ($_POST['id'] as $id) {
+                $this->db->where('id_riwayat_aset', $id);
+                $this->db->delete('tb_riwayat_aset');
+            }
+            if ($this->db->affected_rows() > 0) {
+                $this->session->set_flashdata('succes', " Data berhasil di hapus ");
+            } else {
+                $this->session->set_flashdata('error', " Data gagal di hapus ");
+            }
+        } else {
+            $this->session->set_flashdata('error', " Tidak ada data yang dipilih ");
+        }
+        return redirect('asset/riwayat_aset');
+    }
 }

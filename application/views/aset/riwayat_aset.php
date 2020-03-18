@@ -1,9 +1,13 @@
 <?php $this->view('messages'); ?>
+<?php echo form_open('asset/riwayat_aset/del'); ?>
 <div class="row">
     <div class="col-lg-12">
         <div class="basic-tb-hd" style="padding-bottom : 20px">
             <h2>Riwayat Kehartabendaan</h2>
-            <a href="<?= site_url('asset/riwayat_aset/cetak') ?>" target="_blank" class="btn btn-gray gray-icon-notika waves-effect btn-sm pull-right"><i class="fa fa-print"></i> Cetak</a>
+            <?php if ($row->num_rows() > 0) { ?>
+                <button type="submit" class="btn btn-danger danger-icon-notika waves-effect btn-sm pull-right" style="margin-left: 10px"><i class="fa fa-trash"></i> Hapus</button>
+                <a href="<?= site_url('asset/riwayat_aset/cetak') ?>" target="_blank" class="btn btn-gray gray-icon-notika waves-effect btn-sm pull-right "><i class="fa fa-print"></i> Cetak</a>
+            <?php } ?>
         </div>
     </div>
 </div>
@@ -11,7 +15,7 @@
     <table id="data-table-basic" class="table table-striped">
         <thead>
             <tr>
-                <th>#</th>
+                <th>Pilih</th>
                 <th>Instansi</th>
                 <th>Nama Aset</th>
                 <th>Harga Aset</th>
@@ -27,7 +31,7 @@
             $total = 0;
             foreach ($row->result() as $key => $data) { ?>
                 <tr>
-                    <td><?= $no++ ?></td>
+                    <td><input type="checkbox" name="id[]" value="<?= $data->id_riwayat_aset ?>" required></td>
                     <td><?= $data->instansi ?></td>
                     <td><?= $data->nama_aset ?></td>
                     <td><?= $this->money->rupiah($data->harga_aset) ?></td>
@@ -44,6 +48,7 @@
                 </tr>
             <?php
             } ?>
+            <?php echo form_close() ?>
         </tbody>
         <tfoot>
             <td colspan="3"></td>

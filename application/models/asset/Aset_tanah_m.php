@@ -40,9 +40,11 @@ class Aset_tanah_m extends CI_Model
                'luas_bangunan' => $post['lbangun_t'],
                'tempat_arsip' => $post['tarsip_t'],
                'keterangan' => $post['ket_t'],
-               'tgl_masuk_tanah' => $post['tgl_t'],
-               'dokumentasi' => $post['doc_t']
+               'tgl_masuk_tanah' => $post['tgl_t']
           ];
+          if ($post['doc_t'] != null) {
+               $params['dokumentasi'] = $post['doc_t'];
+          }
           $this->db->insert('tb_aset_tanah', $params);
      }
 

@@ -11,7 +11,7 @@
         <table id="data-table-basic" class="table table-striped">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th>No</th>
                     <th>Instansi</th>
                     <th>Nama Barang</th>
                     <th width="20%">Harga Barang</th>
@@ -96,14 +96,19 @@
                                                             <td>Qr Code Barang <br><small><b> (Silahkan generate jika Qr-Code tidak ada)</b></small></td>
                                                             <td> : </td>
                                                             <td>
+                                                                <?php $dir = base_url() . 'uploads/aset_barang/qrCode/' . $data->id_aset_barang . '.png'; ?>
                                                                 <form action="<?= site_url('asset/aset_barang/generate_qrCode/') ?>" method="post">
                                                                     <input type="hidden" name="id" value="<?= $data->id_aset_barang ?>">
                                                                     <input type="hidden" name="nama" value="<?= $data->nama_aset ?>">
                                                                     <input type="hidden" name="instansi" value="<?= $data->nama_ranting ?>">
-                                                                    <button type="submit" target="_blank" class="btn btn-info btn-sm"> Generate </button>
+                                                                    <button type="submit" target="_blank" class="btn btn-info btn-sm"><i class="fa fa-qrcode"></i> Generate </button>
+                                                                    <?php $temp = '<img src="' . $dir . '">' ?>
+                                                                    <?php if ($temp) {
+                                                                        echo '<a href="' . $dir . '" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-print"></i> Print </a>';
+                                                                    } ?>
+
                                                                 </form>
                                                                 <?php
-                                                                $dir = base_url() . 'uploads/aset_barang/qrCode/' . $data->id_aset_barang . '.png';
                                                                 if (!$dir) {
                                                                     echo "Silahkan Generate Terlebih Dahulu";
                                                                 } else {
