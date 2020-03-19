@@ -183,7 +183,7 @@ class Aset_barang extends CI_Controller
 
 		$params = [
 			'id_riwayat_aset' => 'aset-' . substr(md5(rand()), 0, 10),
-			'instansi' => $aset->nama_ranting,
+			'id_ranting' => $aset->id_ranting,
 			'nama_aset' => $aset->nama_aset,
 			'harga_aset' => $aset->harga_aset,
 			'jumlah_aset' => $aset->jumlah_aset . ' Unit',

@@ -10,15 +10,23 @@ class Forum extends CI_Controller
         check_login();
         $this->load->model('admin_m');
         $this->load->model('forum_m');
+        $this->load->model('user_m');
     }
 
     public function index()
     {
+        $sql = $this->user_m->get($this->session->userdata('userid'));
         $data = [
             'page' => 'Forum Administrator',
-            'row' => $this->forum_m->get()
+            'profil' => $sql->row()
         ];
         $this->template->load('template', 'forum/index', $data);
+    }
+
+    function get_forum()
+    {
+        $sql = $this->forum_m->get();
+        echo json_encode($sql);
     }
 
     public function add()

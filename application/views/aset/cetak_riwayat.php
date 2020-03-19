@@ -46,14 +46,14 @@
                 foreach ($row->result() as $key => $data) { ?>
                     <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $data->instansi ?></td>
+                        <td><?= $data->nama_ranting ?></td>
                         <td><?= $data->nama_aset ?></td>
                         <td><?= $data->harga_aset ?></td>
                         <td><?= $data->jumlah_aset ?></td>
                         <td><?= $this->fungsi->tgl_indo($data->tgl_masuk_aset) ?></td>
                         <td><?= $this->fungsi->tgl_indo($data->tgl_riwayat) ?></td>
                     </tr>
-                <?php } ?>
+                <?php }  ?>
             </tbody>
     </div>
     <!-- Akhir Isi Laporan -->

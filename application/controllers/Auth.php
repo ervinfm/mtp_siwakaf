@@ -34,7 +34,8 @@ class Auth extends CI_Controller
 					$params = array(
 						'userid' => $row->id_admin,
 						'level' => $row->level,
-						'id_ranting' => $row->id_ranting
+						'id_ranting' => $row->id_ranting,
+						'ranting' => $row->nama_ranting
 					);
 					$this->session->set_userdata($params);
 					set_login();

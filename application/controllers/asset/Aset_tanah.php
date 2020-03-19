@@ -183,7 +183,7 @@ class Aset_tanah extends CI_Controller
 
 		$params = [
 			'id_riwayat_aset' => 'aset-' . substr(md5(rand()), 0, 10),
-			'instansi' => $aset->nama_ranting,
+			'id_ranting' => $aset->id_ranting,
 			'nama_aset' => 'Sertifikat no ' . $aset->aset_akta_tanah . '',
 			'harga_aset' => $aset->harga_tanah,
 			'jumlah_aset' => $aset->luas_tanah . ' M <sup>2</sup>',

@@ -13,6 +13,8 @@ class Riwayat_aset extends CI_Controller
     public function index()
     {
         $this->db->from('tb_riwayat_aset');
+        $this->db->join('tb_ranting', 'tb_riwayat_aset.id_ranting = tb_ranting.id_ranting');
+        $this->db->where('tb_ranting.id_ranting', $this->session->userdata('id_ranting'));
         $sql = $this->db->get();
         $data['row'] = $sql;
         $this->template->load('template', 'aset/riwayat_aset', $data);
@@ -21,9 +23,16 @@ class Riwayat_aset extends CI_Controller
     public function cetak()
     {
         $this->db->from('tb_riwayat_aset');
+        $this->db->join('tb_ranting', 'tb_riwayat_aset.id_ranting = tb_ranting.id_ranting');
+        $this->db->where('tb_ranting.id_ranting', $this->session->userdata('id_ranting'));
         $sql = $this->db->get();
-        $data['row'] = $sql;
-        $this->load->view('aset/cetak_riwayat', $data);
+        if($sql->num_rows() > 0){
+            $data['row'] = $sql;
+            $this->load->view('aset/cetak_riwayat', $data);
+        }else{
+            $this->session->set_flashdata('error', " Tidak ada data yang dicetak ! ");
+            redirect('asset/riwayat_aset');
+        }
     }
 
     public function del()

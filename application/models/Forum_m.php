@@ -10,7 +10,7 @@ class Forum_m extends CI_Model
         $this->db->join('tb_ranting', 'tb_admin.id_ranting = tb_ranting.id_ranting');
         $this->db->order_by('created_forum', 'DESC');
         $query = $this->db->get();
-        return $query;
+        return $query->result();
     }
 
 
