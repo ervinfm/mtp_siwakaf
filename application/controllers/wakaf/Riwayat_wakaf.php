@@ -13,6 +13,8 @@ class Riwayat_wakaf extends CI_Controller
     public function index()
     {
         $this->db->from('tb_riwayat_wakaf');
+        $this->db->join('tb_ranting', 'tb_riwayat_wakaf.id_ranting = tb_ranting.id_ranting');
+        $this->db->where('tb_ranting.id_ranting', $this->session->userdata('id_ranting'));
         $sql = $this->db->get();
         $data['row'] = $sql;
         $this->template->load('template', 'wakaf/riwayat_wakaf', $data);
@@ -24,5 +26,23 @@ class Riwayat_wakaf extends CI_Controller
         $sql = $this->db->get();
         $data['row'] = $sql;
         $this->load->view('wakaf/cetak_riwayat', $data);
+    }
+
+    public function del()
+    {
+        if ($_POST['id'] != null) {
+            foreach ($_POST['id'] as $id) {
+                $this->db->where('id_riwayat_aset', $id);
+                $this->db->delete('tb_riwayat_wakaf');
+            }
+            if ($this->db->affected_rows() > 0) {
+                $this->session->set_flashdata('succes', " Data berhasil di hapus ");
+            } else {
+                $this->session->set_flashdata('error', " Data gagal di hapus ");
+            }
+        } else {
+            $this->session->set_flashdata('error', " Tidak ada data yang dipilih ");
+        }
+        return redirect('wakaf/riwayat_wakaf');
     }
 }

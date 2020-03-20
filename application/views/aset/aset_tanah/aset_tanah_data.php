@@ -93,13 +93,12 @@
                                                                     <input type="hidden" name="id" value="<?= $data->id_aset_tanah ?>">
                                                                     <input type="hidden" name="instansi" value="<?= $data->nama_ranting ?>">
                                                                     <button type="submit" target="_blank" class="btn btn-info btn-sm"> <i class="fa fa-qrcode"></i> Generate </button>
-                                                                    <a href="<?= $dir ?>" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-print"></i> Print </a>
                                                                 </form>
                                                                 <?php
                                                                 if (!$dir) {
                                                                     echo "Silahkan Generate Terlebih Dahulu";
                                                                 } else {
-                                                                    echo '<img src="' . $dir . '" style="width:100px; margin-top: 10px">';
+                                                                    echo '<a href="'.$dir.'" target="_blank"><img src="' . $dir . '" style="width:100px; margin-top: 10px"></a>';
                                                                 }
                                                                 ?>
                                                             </td>

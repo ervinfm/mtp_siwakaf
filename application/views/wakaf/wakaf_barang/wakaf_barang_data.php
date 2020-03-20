@@ -31,7 +31,7 @@
                         <td><?= $data->nama_ranting ?></td>
                         <td><?= $data->nama_barang ?></td>
                         <td><?= $this->money->rupiah($data->nilai_barang) ?></td>
-                        <td><?= $this->fungsi->TanggalIndonesia($data->tgl_wakaf) ?></td>
+                        <td><?= $this->fungsi->tgl_indo($data->tgl_wakaf) ?></td>
                         <td>
                             <button type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect" data-toggle="modal" data-target="#rincian<?= $no ?>">
                                 <i class="notika-icon notika-refresh"></i> Detail
@@ -113,7 +113,7 @@
                                                                 if (!$dir) {
                                                                     echo "Silahkan Generate Terlebih Dahulu";
                                                                 } else {
-                                                                    echo '<img src="' . $dir . '" style="width:100px; margin-top: 10px">';
+                                                                    echo '<a href="'.$dir.'" target="_blank"><img src="' . $dir . '" style="width:100px; margin-top: 10px"></a>';
                                                                 }
                                                                 ?>
                                                             </td>

@@ -55,7 +55,7 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="doc_w">Dokumentasi Wakaf </label>
+                            <label for="brg">Berita Acara <small> (Ekstensi: jpeg, jpg, pdf, docx, xlsx | File Maksimal 10 MB)</small></label>
                                 <input type="file" name="doc_w" id="doc_w" class="form-control" value="<?=$row->doc_wakaf_uang?>" >
                             </div>
                         </div>

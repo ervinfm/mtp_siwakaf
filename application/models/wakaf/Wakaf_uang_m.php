@@ -36,9 +36,11 @@ class Wakaf_uang_m extends CI_Model {
                'nilai_wakaf' => $post['nilai_w'],
                'tujuan_wakaf' => $post['tujuan_w'],
                'tgl_wakaf' => $post['tgl_w'],
-               'doc_wakaf_uang' => $post['doc_w'],
                'keterangan' => $post['ket_w']
           ];
+          if ($post['doc_w'] != null) {
+               $params['doc_wakaf_uang'] = $post['doc_w'];
+          }
      $this->db->insert('tb_wakaf_uang',$params);
     }
 
@@ -60,11 +62,16 @@ class Wakaf_uang_m extends CI_Model {
           $this->db->update('tb_wakaf_uang', $params);
     }
 
-    public function del($id)
+     public function del($id)
      {
           $this->db->where('id_wakaf_uang', $id);
           $query = $this->db->delete('tb_wakaf_uang');
           return $query;
+     }
+
+     public function set_riwayat($params)
+     {
+          $this->db->insert('tb_riwayat_wakaf', $params);
      }
 
 

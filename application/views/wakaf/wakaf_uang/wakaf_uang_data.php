@@ -16,7 +16,8 @@
                     <th>Nama Mauquf</th>
                     <th width="15%">Nilai Wakaf</th>
                     <th width="5%">Rincian</th>
-                    <th width="150px">Action</th>
+                    <th>Berita Acara</th>
+                    <th width="200px">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -49,7 +50,7 @@
                                                             <tr>
                                                                 <td width="40%">Tanggal Pewakafan</td>
                                                                 <td width="5%"> : </td>
-                                                                <td><?=$this->fungsi->TanggalIndonesia($data->tgl_wakaf)?></td>
+                                                                <td><?=$this->fungsi->tgl_indo($data->tgl_wakaf)?></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Keterangan Wakaf</td>
@@ -62,14 +63,23 @@
                                                                 <td><?=$this->money->rupiah($data->nilai_wakaf)?></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Dokumentasi uang </td>
+                                                                <td>Qr Code Uang <br><small><b> (Silahkan generate jika Qr-Code tidak ada)</b></small></td>
                                                                 <td> : </td>
                                                                 <td>
-                                                                    <?php if($data->doc_wakaf_uang == null){ ?>
-                                                                       <img src="<?=site_url('uploads/wakaf_uang/')?>default.jpg" width="90px">
-                                                                    <?php }else{ ?>
-                                                                        <a href="<?=site_url('uploads/wakaf_uang/'.$data->doc_wakaf_uang)?>" target="_blank"><img src="<?=site_url('uploads/wakaf_uang/')?><?=$data->doc_wakaf_uang?>" width="90px"></a>
-                                                                    <?php } ?>
+                                                                    <form action="<?= site_url('wakaf/wakaf_uang/generate_qrCode/') ?>" method="post">
+                                                                        <input type="hidden" name="id" value="<?= $data->id_wakaf_uang ?>">
+                                                                        <input type="hidden" name="nama" value="<?= $data->nama_wakif ?>">
+                                                                        <input type="hidden" name="instansi" value="<?= $data->nama_ranting ?>">
+                                                                        <button type="submit" target="_blank" class="btn btn-info btn-sm"> Generate </button>
+                                                                    </form>
+                                                                    <?php
+                                                                    $dir = base_url() . 'uploads/wakaf_uang/qrCode/' . $data->id_wakaf_uang . '.png';
+                                                                    if (!$dir) {
+                                                                        echo "Silahkan Generate Terlebih Dahulu";
+                                                                    } else {
+                                                                        echo '<a href="'.$dir.'" target="_blank"><img src="' . $dir . '" style="width:100px; margin-top: 10px"></a>';
+                                                                    }
+                                                                    ?>
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -84,13 +94,69 @@
                                 </div>
                                 <!-- End part Modals --> 
                             </td>
+                            <td>
+                            <?php if ($data->doc_wakaf_uang != null) { ?>
+                                <a href="<?= site_url('uploads/wakaf_uang/' . $data->doc_wakaf_uang) ?>" target="_blank">
+                                    <button class="btn btn-deeporange deeporange-icon-notika waves-effect"><i class="notika-icon notika-down-arrow"></i> Unduh </button>
+                                </a>
+                            <?php } ?>
+                        </td>
                             <td>  
-                                <a href="<?=site_url('wakaf/wakaf_uang/edit/'.$data->id_wakaf_uang)?>" class="btn btn-warning btn-sm">
+                                <a href="<?=site_url('wakaf/wakaf_uang/edit/'.$data->id_wakaf_uang)?>" class="btn btn-amber amber-icon-notika waves-effect btn-sm">
                                     <i class="fa fa-edit"></i> Edit
                                 </a>
-                                <a href="<?=site_url('wakaf/wakaf_uang/del/'.$data->id_wakaf_uang)?>" onclick="return confirm('Yakin Hapus?')" class="btn btn-danger btn-sm">
+                                <a href="#" onclick="return confirm_delete()" class="btn btn-danger danger-icon-notika waves-effect btn-sm">
                                     <i class="fa fa-trash-o"></i> Hapus
                                 </a>
+                                <a href="#" onclick="return confirm_riwayat()" data-toggle="tooltip" title="" data-original-title="Periwayatan Data" class="btn btn-lime lime-icon-notika waves-effect btn-sm"><i class="fa fa-history"></i></a>
+                                <!-- JS Confirm Hapus Data -->
+                                <script>
+                                    function confirm_delete() {
+                                        Swal.fire({
+                                            title: 'Yakin Menghapus data ?',
+                                            text: "data yang dihapus tidak akan diriwayatkan!",
+                                            icon: 'warning',
+                                            showCancelButton: true,
+                                            confirmButtonColor: '#3085d6',
+                                            cancelButtonColor: '#d33',
+                                            confirmButtonText: 'Hapus'
+                                        }).then((result) => {
+                                            if (result.value) {
+                                                window.location = "<?= site_url('wakaf/wakaf_uang/del/' . $data->id_wakaf_uang) ?>";
+                                            } else {
+                                                Swal.fire(
+                                                    'Batal Hapus',
+                                                    'Penghapusan data dibatalkan',
+                                                    'success'
+                                                )
+                                            }
+                                        });
+                                    }
+                                </script>
+                                <!-- Js Confirm Periwayatan Data -->
+                                <script>
+                                    function confirm_riwayat() {
+                                        Swal.fire({
+                                            title: 'Yakin Meriwayatkan data ?',
+                                            text: "data yang diriwayatkan akan dipindahkan ke daftar riwayat Wakaf !",
+                                            icon: 'warning',
+                                            showCancelButton: true,
+                                            confirmButtonColor: '#3085d6',
+                                            cancelButtonColor: '#d33',
+                                            confirmButtonText: 'Ya, riwayatkan'
+                                        }).then((result) => {
+                                            if (result.value) {
+                                                window.location = "<?= site_url('wakaf/wakaf_uang/riwayat/' . $data->id_wakaf_uang) ?>";
+                                            } else {
+                                                Swal.fire(
+                                                    'Batal ',
+                                                    'Periwayatan data dibatalkan',
+                                                    'success'
+                                                )
+                                            }
+                                        });
+                                    }
+                                </script>
                             </td>
                         </tr>
                     <?php 

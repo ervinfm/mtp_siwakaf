@@ -99,7 +99,7 @@ class Wakaf_uang extends CI_Controller
 			} else {
 				$this->wakaf_uang_m->add($post);
 				if ($this->db->affected_rows() > 0) {
-					$this->session->set_flashdata('warning', " Data berhasil Ditambahkan Namun Gambar Dokumentasi tidak di masukkan");
+					$this->session->set_flashdata('warning', " Data berhasil Ditambahkan Namun Berita Acara tidak di masukkan");
 					redirect('wakaf/wakaf_uang');
 				} else {
 					$this->session->set_flashdata('error', " Data Gagal Ditambahkan");
@@ -155,6 +155,53 @@ class Wakaf_uang extends CI_Controller
 			$this->session->set_flashdata('succes', " Data berhasil di hapus ");
 		} else {
 			$this->session->set_flashdata('error', " Data gagal di hapus ");
+		}
+		redirect('wakaf/wakaf_uang');
+	}
+
+	function generate_qrCode()
+	{
+		$post = $this->input->post(null, TRUE);
+
+		$id = $post['id'];
+		$name = $post['nama'];
+		$instansi = $post['instansi'];
+		$value = $id . ' - ' . $name . ' - ' . $instansi;
+
+		$qrCode = new Endroid\QrCode\QrCode($value);
+
+		header('Content-Type: ' . $qrCode->getContentType());
+		$qrCode->writeFile('uploads/wakaf_uang/qrCode/' . $id . '.png');
+		redirect('wakaf/wakaf_uang');
+	}
+
+	public function riwayat($id)
+	{
+		$aset = $this->wakaf_uang_m->get($id)->row();
+
+		$params = [
+			'id_riwayat_aset' => 'wakaf-' . substr(md5(rand()), 0, 10),
+			'instansi' => $aset->nama_ranting,
+			'nama_aset' => 'Wakaf Uang ' . $aset->tujuan_wakaf,
+			'harga_aset' => $aset->nilai_wakaf,
+			'jumlah_aset' => '-',
+			'wakif' => $aset->nama_wakif,
+			'mauquf' => $aset->nama_mauquf,
+			'tgl_masuk_aset' => $aset->tgl_wakaf,
+			'jenis_aset' => 'Uang'
+		];
+
+		$this->wakaf_uang_m->set_riwayat($params);
+
+		if ($this->db->affected_rows() > 0) {
+			if ($aset->doc_wakaf_uang != null) {
+				$target_file = './uploads/wakaf_uang/' . $aset->doc_wakaf_tuang;
+				unlink($target_file);
+			}
+			$this->wakaf_uang_m->del($id);
+			$this->session->set_flashdata('succes', " Data berhasil di Riwayatkan ");
+		} else {
+			$this->session->set_flashdata('error', " Data gagal di Riwayatkan ");
 		}
 		redirect('wakaf/wakaf_uang');
 	}

@@ -126,7 +126,7 @@
                                                                 if (!$dir) {
                                                                     echo "Silahkan Generate Terlebih Dahulu";
                                                                 } else {
-                                                                    echo '<img src="' . $dir . '" style="width:100px; margin-top: 10px">';
+                                                                    echo '<a href="'.$dir.'" target="_blank"><img src="' . $dir . '" style="width:100px; margin-top: 10px"></a>';
                                                                 }
                                                                 ?>
                                                             </td>
