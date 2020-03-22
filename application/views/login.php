@@ -32,7 +32,7 @@
           <div class="signin-image">
             <figure><img src="<?= site_url() ?>assets/images/mekah-putih.jpg" width="250px" alt="sing up image"></figure>
             <center>
-              <h4>Aplikasi Inventaris <br> Kehartabendaan dan Wakaf</h4>
+              <h4>Aplikasi Inventaris <br> Kehartabendaan dan Wakaf <br> PCM Piyungan</h4>
             </center>
           </div>
           <!-- akhir penaruhan img -->
@@ -52,8 +52,8 @@
               <div class="form-group form-button">
                 <input type="submit" name="login" id="signin" class="btn btn-success" value="Masuk" />
               </div>
-              <div style="float:left; width:120px">
-                <a href="<?= site_url('auth/register') ?>" class="signup-image-link">Buat Akun Baru ?</a>
+              <div style="float:center;">
+                <a href="<?= site_url('auth/register') ?>" class="signup-image-link">Buat Akun Baru</a>
               </div>
             </form>
           </div>

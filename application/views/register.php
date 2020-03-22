@@ -26,28 +26,30 @@
                             <form action="<?=site_url('auth/register_proses')?>" method="post">
                                 <div class="form-group">
                                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="user" id="name" placeholder="Username Baru" required/>
+                                    <input type="text" name="user" id="name" placeholder="Username" required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                    <input type="password" name="pass" id="pass" placeholder="Password Baru" required/>
+                                    <input type="password" name="pass" id="pass" placeholder="Password" required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                    <input type="password" name="re_pass" id="re_pass" placeholder="Ulangi Password Baru" required/>
+                                    <input type="password" name="re_pass" id="re_pass" placeholder="Ulangi Password" required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="ranting"><i class="zmdi zmdi-dot-circle-alt"></i></label>
                                     <input type="text" name="ranting" id="ranting" placeholder="Kode Instansi" required/>
                                 </div>
                                 <div class="form-group form-button">
-                                    <input type="submit" name="sign_up" value="<?=ucfirst($page)?>" class="btn btn-success"/>
+                                    <input type="submit" name="sign_up" value="Daftar" class="btn btn-success"/>
                                 </div>
                             </form>
+                            <div class="mt-3" style="float:center;">
+                                <a href="<?= site_url('auth/login') ?>" class="signup-image-link">Sudah Terdaftar ?</a>
+                            </div>
                         </div>
                     <div class="signup-image">
                         <figure><img src="<?=site_url()?>assets/images/mekah-putih.jpg" alt="sing up image"></figure>
-                        <a href="<?=site_url('auth/login')?>" class="signup-image-link">Sudah Terdaftar ?</a>
                     </div>
                 </div>
             </div>

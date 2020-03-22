@@ -239,7 +239,7 @@
     <div class="realtime-statistic-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-2 col-sm-2 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="realtime-wrap notika-shadow mg-t-0">
                         <?= $contents ?>
                     </div>
@@ -264,59 +264,73 @@
 
     <!-- Start Menus Log  -->
     <div class="modal fade" id="myModaleleven" role="dialog">
-        <div class="modal-dialog modals-default nk-default">
+        <div class="modal-dialog nk-default">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <center>
+                        <h5 class="text-align-center">
+                            <h4>Pengaturan lanjutan</h4>
+                            <p>Silahkan Memilih salah satu Menu untuk diarahkan</p>
+                        </h5>
+                    </center>
                 </div>
                 <div class="modal-body">
-                    <center>
-                        <h2>Pengaturan lanjutan</h2>
-                        <p>Silahkan Memilih salah satu Menu untuk diarahkan</p>
-                    </center>
                     <div class="row">
-                        <div class="col-lg-12" style="padding-top : 30px">
+                        <div class="col-lg-12">
                             <div class="col-lg-4">
-                                <div class="btn-demo-notika ">
-                                    <div class="button-icon-btn button-icon-btn-rd ">
-                                        <button onclick="lockscreen()" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect mg-t-5" style="width:100px; height:100px">
-                                            <i class="notika-icon notika-refresh" style="font-size : 40px; position: center;"></i>
-                                        </button>
-                                    </div>
+                                <div class="row">
+                                    <center>
+                                        <div class="btn-demo-notika ">
+                                            <div class="button-icon-btn button-icon-btn-rd ">
+                                                <button onclick="lockscreen()" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect mg-t-5" style="width:100px; height:100px">
+                                                    <i class="notika-icon notika-refresh" style="font-size : 40px; position: center;"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </center>
+                                </div>
+                                <div class="row">
+                                    <center>
+                                        <h5>Kunci Layar</h5>
+                                    </center>
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                <div class="btn-demo-notika ">
-                                    <div class="button-icon-btn button-icon-btn-rd ">
-                                        <button type="submit" data-toggle="modal" data-target="#myModalone" data-dismiss="modal" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg waves-effect mg-t-5" style="width:100px; height:100px">
-                                            <i class="notika-icon notika-up-arrow" style="font-size : 40px; position: center;"></i>
-                                        </button>
-                                    </div>
+                                <div class="row">
+                                    <center>
+                                        <div class="btn-demo-notika ">
+                                            <div class="button-icon-btn button-icon-btn-rd ">
+                                                <button type="submit" data-toggle="modal" data-target="#myModalone" data-dismiss="modal" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg waves-effect mg-t-5" style="width:100px; height:100px">
+                                                    <i class="notika-icon notika-up-arrow" style="font-size : 40px; position: center;"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </center>
+                                </div>
+                                <div class="row">
+                                    <center>
+                                        <h5>Profile Akun</h5>
+                                    </center>
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                <div class="btn-demo-notika ">
-                                    <div class="button-icon-btn button-icon-btn-rd ">
-                                        <button onclick="exit()" class="btn btn-deeporange deeporange-icon-notika btn-reco-mg btn-button-mg waves-effect mg-t-5" style="width:100px; height:100px">
-                                            <i class="notika-icon notika-close" style="font-size : 40px; position: center;"></i>
-                                        </button>
-                                    </div>
+                                <div class="row">
+                                    <center>
+                                        <div class="btn-demo-notika ">
+                                            <div class="button-icon-btn button-icon-btn-rd ">
+                                                <button onclick="exit()" class="btn btn-deeporange deeporange-icon-notika btn-reco-mg btn-button-mg waves-effect mg-t-5" style="width:100px; height:100px">
+                                                    <i class="notika-icon notika-close" style="font-size : 40px; position: center;"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </center>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <center>
-                                    <h2>Kunci Layar</h2>
-                                </center>
-                            </div>
-                            <div class="col-lg-4">
-                                <center>
-                                    <h2>Profile Akun</h2>
-                                </center>
-                            </div>
-                            <div class="col-lg-4">
-                                <center>
-                                    <h2>Keluar Aplikasi</h2>
-                                </center>
+                                <div class="row">
+                                    <center>
+                                        <h5>Keluar Aplikasi</h5>
+                                    </center>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -328,49 +342,56 @@
 
     <!-- Start Update data Admin Login -->
     <div class="modal fade" id="myModalone" role="dialog">
-        <div class="modal-dialog modals-default">
+        <div class="modal-dialog nk-default">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h3>Perbaharui Data Admin</h3>
+                    <h4>Perbaharui Data Admin</h4>
                 </div>
-                <div class="modal-body" style="padding-top : 30px">
+                <div class="modal-body">
                     <form action="<?= site_url('admin/profil') ?>" method="post">
-                        <input type="hidden" name="id" value="<?= $this->fungsi->user_login()->id_admin ?>">
-                        <div class="form-group col-lg-6">
-                            <label for="">Nama Admin</label>
-                            <div class="nk-int-st">
-                                <input type="text" name="a_nama" value="<?= $this->fungsi->user_login()->nama_admin ?>" class="form-control">
+                        <div class="row">
+                            <input type="hidden" name="id" value="<?= $this->fungsi->user_login()->id_admin ?>">
+                            <div class="form-group col-lg-6">
+                                <label for="">Nama Admin</label>
+                                <div class="nk-int-st">
+                                    <input type="text" name="a_nama" value="<?= $this->fungsi->user_login()->nama_admin ?>" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="">Ranting</label>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" value="<?= $this->fungsi->user_login()->nama_ranting ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="">Username</label>
+                                <div class="nk-int-st">
+                                    <input type="text" name="a_user" value="<?= $this->fungsi->user_login()->username ?>" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="">Password</label>
+                                <div class="nk-int-st">
+                                    <input type="password" name="a_pass" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="">Alamat</label>
+                                <div class="nk-int-st">
+                                    <input type="text" name="a_alamat" value="<?= $this->fungsi->user_login()->alamat ?>" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="">Telpon</label>
+                                <div class="nk-int-st">
+                                    <input type="text" name="a_telp" value="<?= $this->fungsi->user_login()->telp ?>" class="form-control">
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group col-lg-6">
-                            <label for="">Ranting</label>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" value="<?= $this->fungsi->user_login()->nama_ranting ?>" readonly>
-                            </div>
-                        </div>
-                        <div class="form-group col-lg-6">
-                            <label for="">Username</label>
-                            <div class="nk-int-st">
-                                <input type="text" name="a_user" value="<?= $this->fungsi->user_login()->username ?>" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group col-lg-6">
-                            <label for="">Password</label>
-                            <div class="nk-int-st">
-                                <input type="password" name="a_pass" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group col-lg-6">
-                            <label for="">Alamat</label>
-                            <div class="nk-int-st">
-                                <input type="text" name="a_alamat" value="<?= $this->fungsi->user_login()->alamat ?>" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group col-lg-6">
-                            <label for="">Telpon</label>
-                            <div class="nk-int-st">
-                                <input type="text" name="a_telp" value="<?= $this->fungsi->user_login()->telp ?>" class="form-control">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <small class="text-left">*Kosongkan Password jika tidak diubah</small>
                             </div>
                         </div>
                 </div>
@@ -378,7 +399,6 @@
                     <button type="submit" class="btn btn-primary" name="d_up">Simpan Perubahan</button>
                 </div>
                 </form>
-                <small>*Kosongkan Password jika tidak diubah</small>
             </div>
         </div>
     </div>
