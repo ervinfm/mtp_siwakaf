@@ -43,12 +43,12 @@ class Riwayat_aset extends CI_Controller
                 $this->db->delete('tb_riwayat_aset');
             }
             if ($this->db->affected_rows() > 0) {
-                $this->session->set_flashdata('succes', " Data berhasil di hapus ");
+                $this->session->set_flashdata('succes', " Data Riwayat Aset Berhasil dihapus ");
             } else {
-                $this->session->set_flashdata('error', " Data gagal di hapus ");
+                $this->session->set_flashdata('error', " Data Riwayat Aset Gagal dihapus ");
             }
         } else {
-            $this->session->set_flashdata('error', " Tidak ada data yang dipilih ");
+            $this->session->set_flashdata('error', " Tidak ada data Riwayat Aset yang dipilih ");
         }
         return redirect('asset/riwayat_aset');
     }

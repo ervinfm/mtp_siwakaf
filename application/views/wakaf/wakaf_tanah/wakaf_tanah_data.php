@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <div class="basic-tb-hd" style="padding-bottom : 20px">
                 <h2>Daftar Seluruh Wakaf Tanah </h2>
-                <a href="<?= site_url('wakaf/wakaf_tanah/add') ?>" class="btn btn-success btn-sm pull-right"><i class="fa fa-pencil"></i>Tambah</a>
+                <a href="<?= site_url('wakaf/wakaf_tanah/add') ?>" class="btn btn-success success-icon-notika waves-effect btn-sm pull-right"><i class="fa fa-pencil"></i> Tambah</a>
             </div>
         </div>
     </div>

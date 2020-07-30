@@ -68,7 +68,7 @@ class Wakaf_barang extends CI_Controller
 		);
 
 		if ($sql->num_rows() < 1) {
-			$this->session->set_flashdata('warning', " Data tidak ditemukan");
+			$this->session->set_flashdata('warning', " Data Wakaf Barang yang dipilih tidak ditemukan");
 			redirect('wakaf/wakaf_barang');
 		}
 
@@ -92,19 +92,19 @@ class Wakaf_barang extends CI_Controller
 				$post['doc_w'] = $this->upload->data('file_name');
 				$this->wakaf_barang_m->add($post);
 				if ($this->db->affected_rows() > 0) {
-					$this->session->set_flashdata('succes', " Data berhasil Ditambahkan");
+					$this->session->set_flashdata('succes', " Data Wakaf Barang baru Berhasil ditambahkan");
 					redirect('wakaf/wakaf_barang');
 				} else {
-					$this->session->set_flashdata('error', " Data Gagal Ditambahkan");
+					$this->session->set_flashdata('error', " Data Wakaf Barang baru Gagal ditambahkan");
 					redirect('wakaf/wakaf_barang/add_aset');
 				}
 			} else {
 				$this->wakaf_barang_m->add($post);
 				if ($this->db->affected_rows() > 0) {
-					$this->session->set_flashdata('warning', " Data berhasil Ditambahkan Namun Gambar Dokumentasi tidak di masukkan");
+					$this->session->set_flashdata('warning', " Data Wakaf Barang baru berhasil Ditambahkan Namun Berita Acara tidak ada");
 					redirect('wakaf/wakaf_barang');
 				} else {
-					$this->session->set_flashdata('error', " Data Gagal Ditambahkan");
+					$this->session->set_flashdata('error', " Data Wakaf Barang baru Gagal ditambahkan");
 					redirect('wakaf/wakaf_barang/add_aset');
 				}
 			}
@@ -134,10 +134,10 @@ class Wakaf_barang extends CI_Controller
 			}
 			$this->wakaf_barang_m->edit($post);
 			if ($this->db->affected_rows() > 0) {
-				$this->session->set_flashdata('succes', " Data berhasil Diperbaharui");
+				$this->session->set_flashdata('succes', " Data Wakaf Barang yang dipilih Berhasil diperbaharui");
 				redirect('wakaf/wakaf_barang');
 			} else {
-				$this->session->set_flashdata('error', " Data Gagal Diperbaharui");
+				$this->session->set_flashdata('error', " Data Wakaf Barang yang dipilih Gagal diperbaharui");
 				redirect('wakaf/wakaf_barang/edit_aset');
 			}
 		} else {
@@ -155,9 +155,9 @@ class Wakaf_barang extends CI_Controller
 		}
 		$this->wakaf_barang_m->del($id);
 		if ($this->db->affected_rows() > 0) {
-			$this->session->set_flashdata('succes', " Data berhasil di hapus ");
+			$this->session->set_flashdata('succes', " Data Wakaf Barang yang dipilih Berhasil dihapus ");
 		} else {
-			$this->session->set_flashdata('error', " Data gagal di hapus ");
+			$this->session->set_flashdata('error', " Data Wakaf Barang yang dipilih Gagal dihapus ");
 		}
 		redirect('wakaf/wakaf_barang');
 	}
@@ -201,9 +201,9 @@ class Wakaf_barang extends CI_Controller
 				unlink($target_file);
 			}
 			$this->wakaf_barang_m->del($id);
-			$this->session->set_flashdata('succes', " Data berhasil di Riwayatkan ");
+			$this->session->set_flashdata('succes', " Data Wakaf Barang yang dipilih Berhasil diriwayatkan ");
 		} else {
-			$this->session->set_flashdata('error', " Data gagal di Riwayatkan ");
+			$this->session->set_flashdata('error', " Data Wakaf Barang yang dipilih Gagal diriwayatkan ");
 		}
 		redirect('wakaf/wakaf_barang');
 	}

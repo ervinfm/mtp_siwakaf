@@ -36,12 +36,12 @@ class Riwayat_wakaf extends CI_Controller
                 $this->db->delete('tb_riwayat_wakaf');
             }
             if ($this->db->affected_rows() > 0) {
-                $this->session->set_flashdata('succes', " Data berhasil di hapus ");
+                $this->session->set_flashdata('succes', " Data Riwayat Wakaf Berhasil dihapus ");
             } else {
-                $this->session->set_flashdata('error', " Data gagal di hapus ");
+                $this->session->set_flashdata('error', " Data Riwayat Wakaf Gagal di hapus ");
             }
         } else {
-            $this->session->set_flashdata('error', " Tidak ada data yang dipilih ");
+            $this->session->set_flashdata('error', " Tidak ada data Riwayat Wakaf yang dipilih ");
         }
         return redirect('wakaf/riwayat_wakaf');
     }

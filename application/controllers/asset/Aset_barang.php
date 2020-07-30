@@ -67,7 +67,7 @@ class Aset_barang extends CI_Controller
 		);
 
 		if ($sql->num_rows() < 1) {
-			$this->session->set_flashdata('warning', " Data tidak ditemukan");
+			$this->session->set_flashdata('warning', " Data yang dipilih tidak ditemukan");
 			redirect('asset/aset_barang');
 		}
 
@@ -91,16 +91,16 @@ class Aset_barang extends CI_Controller
 				$post['image'] = $this->upload->data('file_name');
 				$this->aset_barang_m->add($post);
 				if ($this->db->affected_rows() > 0) {
-					$this->session->set_flashdata('succes', " Data berhasil Ditambahkan");
+					$this->session->set_flashdata('succes', " Data Aset Barang baru Berhasil ditambahkan");
 					redirect('asset/aset_barang');
 				} else {
-					$this->session->set_flashdata('error', " Data Gagal Ditambahkan");
+					$this->session->set_flashdata('error', " Data Aset Barang baru Gagal ditambahkan");
 					redirect('asset/aset_barang/add_aset');
 				}
 			} else {
 				$this->aset_barang_m->add($post);
 				if ($this->db->affected_rows() > 0) {
-					$this->session->set_flashdata('warning', " Data berhasil Ditambahkan Namun Gambar Dokumentasi tidak di masukkan");
+					$this->session->set_flashdata('warning', " Data Aset Barang baru Berhasil ditambahkan Namun Berita Acara tidak ada");
 					redirect('asset/aset_barang');
 				} else {
 					$this->session->set_flashdata('error', " Data Gagal Ditambahkan");
@@ -133,10 +133,10 @@ class Aset_barang extends CI_Controller
 			}
 			$this->aset_barang_m->edit($post);
 			if ($this->db->affected_rows() > 0) {
-				$this->session->set_flashdata('succes', " Data berhasil Diperbaharui");
+				$this->session->set_flashdata('succes', " Data Aset Barang yang dipilih Berhasil diperbaharui");
 				redirect('asset/aset_barang');
 			} else {
-				$this->session->set_flashdata('error', " Data Gagal Diperbaharui");
+				$this->session->set_flashdata('error', "  Data Aset Barang yang dipilih Gagal diperbaharui");
 				redirect('asset/aset_barang/edit_aset');
 			}
 		} else {
@@ -154,9 +154,9 @@ class Aset_barang extends CI_Controller
 		}
 		$this->aset_barang_m->del($id);
 		if ($this->db->affected_rows() > 0) {
-			$this->session->set_flashdata('succes', " Data berhasil di hapus ");
+			$this->session->set_flashdata('succes', " Data Aset Barang yang dipilih Berhasil dihapus ");
 		} else {
-			$this->session->set_flashdata('error', " Data gagal di hapus ");
+			$this->session->set_flashdata('error', " Data Aset Barang yang dipilih Gagal dihapus  ");
 		}
 		redirect('asset/aset_barang');
 	}
@@ -198,9 +198,9 @@ class Aset_barang extends CI_Controller
 				unlink($target_file);
 			}
 			$this->aset_barang_m->del($id);
-			$this->session->set_flashdata('succes', " Data berhasil di Riwayatkan ");
+			$this->session->set_flashdata('succes', " Data Aset Barang yang dipilih Berhasil di Riwayatkan ");
 		} else {
-			$this->session->set_flashdata('error', " Data gagal di Riwayatkan ");
+			$this->session->set_flashdata('error', " Data Aset Barang yang dipilih Gagal di Riwayatkan ");
 		}
 		redirect('asset/aset_barang');
 	}

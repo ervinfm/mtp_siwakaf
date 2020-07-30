@@ -50,7 +50,7 @@ class Ranting extends CI_Controller
 			);
 			$this->template->load('template', 'ranting/ranting_form', $data);
 		} else {
-			$this->session->set_flashdata('error', " Data tidak ditemukan");
+			$this->session->set_flashdata('error', " Data Instansi yang dipilih tidak ditemukan");
 			redirect('ranting');
 		}
 	}
@@ -62,28 +62,28 @@ class Ranting extends CI_Controller
 		if (isset($_POST['add'])) {
 			$this->ranting_m->add($post);
 			if ($this->db->affected_rows() > 0) {
-				$this->session->set_flashdata('succes', "Data berhasil Ditambahkan");
+				$this->session->set_flashdata('succes', "Data Instansi yang baru Berhasil ditambahkan");
 				redirect('ranting');
 			} else {
-				$this->session->set_flashdata('error', "Data Gagal Ditambahkan");
+				$this->session->set_flashdata('error', "Data Instansi yang baru Gagal ditambahkan");
 				redirect('ranting/add');
 			}
 		} else if (isset($_POST['edit'])) {
 			$this->ranting_m->edit($post);
 			if ($this->db->affected_rows() > 0) {
-				$this->session->set_flashdata('succes', "Data berhasil di perbaharui ");
+				$this->session->set_flashdata('succes', "Data Instansi yang dipilih Berhasil diperbaharui ");
 				redirect('ranting');
 			} else {
-				$this->session->set_flashdata('error', "Data Gagal di perbaharui");
+				$this->session->set_flashdata('error', "Data Instansi yang dipilih Gagal diperbaharui");
 				redirect('ranting/edit');
 			}
 		} else if (isset($_POST['edit_admin'])) {
 			$this->ranting_m->edit_admin($post);
 			if ($this->db->affected_rows() > 0) {
-				$this->session->set_flashdata('succes', "Data berhasil di perbaharui ");
+				$this->session->set_flashdata('succes', "Data Admin Instansi yang dipilih Berhasil diperbaharui ");
 				redirect('ranting');
 			} else {
-				$this->session->set_flashdata('error', "Data Gagal di perbaharui");
+				$this->session->set_flashdata('error', "Data Admin Instansi yang dipilih Gagal diperbaharui");
 				redirect('ranting');
 			}
 		}
@@ -94,9 +94,9 @@ class Ranting extends CI_Controller
 		$post = $this->input->post(null, TRUE);
 		$this->ranting_m->del($post['id']);
 		if ($this->db->affected_rows() > 0) {
-			$this->session->set_flashdata('succes', "Data berhasil di hapus ");
+			$this->session->set_flashdata('succes', "Data Instansi yang dipilih Berhasil dihapus ");
 		} else {
-			$this->session->set_flashdata('error', "Data gagal di hapus ");
+			$this->session->set_flashdata('error', "Data Instansi yang dipilih Gagal dihapus ");
 		}
 		redirect('ranting');
 	}
@@ -121,7 +121,7 @@ class Ranting extends CI_Controller
 			);
 			$this->template->load('template', 'ranting/ranting_admin_form', $data);
 		} else {
-			$this->session->set_flashdata('error', " Data tidak ditemukan");
+			$this->session->set_flashdata('error', " Data Admin Instansi yang dipilih tidak ditemukan");
 			redirect('ranting');
 		}
 	}

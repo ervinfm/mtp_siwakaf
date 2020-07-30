@@ -201,19 +201,10 @@
                             <div id="laporan" class="tab-pane in  <?= $this->uri->segment(1) == 'laporan' ? 'active' : null ?>  notika-tab-menu-bg animated flipInX">
                                 <ul class="notika-main-menu-dropdown">
                                     <li>
-                                        <a href="<?= site_url('laporan/laporan/') ?>?cat=1">Kehartabendaan Barang</a>
+                                        <a href="<?= site_url('laporan/kehartabendaan') ?> ">Kehartabendaan </a>
                                     </li>
                                     <li>
-                                        <a href="<?= site_url('laporan/laporan/') ?>?cat=2">Kehartabendaan Tanah</a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= site_url('laporan/laporan/') ?>?cat=3">Wakaf Barang</a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= site_url('laporan/laporan/') ?>?cat=4">Wakaf Uang</a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= site_url('laporan/laporan/') ?>?cat=5">Wakaf Tanah</a>
+                                        <a href="<?= site_url('laporan/wakaf') ?> ">Wakaf</a>
                                     </li>
                                 </ul>
                             </div>
@@ -221,10 +212,10 @@
                             <div id="laporan" class="tab-pane in  <?= $this->uri->segment(1) == 'laporan' ? 'active' : null ?>  notika-tab-menu-bg animated flipInX">
                                 <ul class="notika-main-menu-dropdown">
                                     <li>
-                                        <a href="<?= site_url('laporan/laporan_sub/laporan_aset') ?>" target="_blank">Kehartabendaan</a>
+                                        <a href="<?= site_url('laporan/kehartabendaan') ?>">Kehartabendaan</a>
                                     </li>
                                     <li>
-                                        <a href="<?= site_url('laporan/laporan_sub/laporan_wakaf') ?>" target="_blank">Wakaf</a>
+                                        <a href="<?= site_url('laporan/wakaf') ?>" >Wakaf</a>
                                     </li>
                                 </ul>
                             </div>

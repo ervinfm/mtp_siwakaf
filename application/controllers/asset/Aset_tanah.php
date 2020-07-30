@@ -40,7 +40,7 @@ class Aset_tanah extends CI_Controller
 		);
 
 		if ($sql->num_rows() < 1) {
-			$this->session->set_flashdata('warning', " Data tidak ditemukan");
+			$this->session->set_flashdata('warning', " Data Aset Tanah yang dipilih tidak Ada");
 			redirect('asset/aset_tanah');
 		}
 
@@ -92,16 +92,16 @@ class Aset_tanah extends CI_Controller
 				$post['doc_t'] = $this->upload->data('file_name');
 				$this->aset_tanah_m->add($post);
 				if ($this->db->affected_rows() > 0) {
-					$this->session->set_flashdata('succes', " Data berhasil Ditambahkan");
+					$this->session->set_flashdata('succes', " Data Aset Tanah baru dipilih Berhasil ditambahkan");
 					redirect('asset/aset_tanah');
 				} else {
-					$this->session->set_flashdata('error', " Data Gagal Ditambahkan");
+					$this->session->set_flashdata('error', " Data Aset Tanah baru dipilih Gagal ditambahkan");
 					redirect('asset/aset_tanah/add_tanah');
 				}
 			} else {
 				$this->aset_tanah_m->add($post);
 				if ($this->db->affected_rows() > 0) {
-					$this->session->set_flashdata('warning', " Data berhasil Ditambahkan Namun Gambar Dokumentasi tidak di masukkan");
+					$this->session->set_flashdata('warning', " Data Aset Tanah baru Berhasil ditambahkan Namun Berita Acara tidak ada");
 					redirect('asset/aset_tanah');
 				} else {
 					$this->session->set_flashdata('error', " Data Gagal Ditambahkan");
@@ -134,10 +134,10 @@ class Aset_tanah extends CI_Controller
 			}
 			$this->aset_tanah_m->edit($post);
 			if ($this->db->affected_rows() > 0) {
-				$this->session->set_flashdata('succes', " Data berhasil Diperbaharui");
+				$this->session->set_flashdata('succes', " Data Aset Tanah yang dipilih Berhasil Diperbaharui");
 				redirect('asset/aset_tanah');
 			} else {
-				$this->session->set_flashdata('error', " Data Gagal Diperbaharui");
+				$this->session->set_flashdata('error', " Data Aset Tanah yang dipilih Gagal diperbaharui");
 				redirect('asset/aset_tanah/edit_aset');
 			}
 		} else {
@@ -155,9 +155,9 @@ class Aset_tanah extends CI_Controller
 		}
 		$this->aset_tanah_m->del($id);
 		if ($this->db->affected_rows() > 0) {
-			$this->session->set_flashdata('succes', " Data berhasil di hapus ");
+			$this->session->set_flashdata('succes', " Data Aset Tanah yang dipilih  Berhasil dihapus ");
 		} else {
-			$this->session->set_flashdata('error', " Data gagal di hapus ");
+			$this->session->set_flashdata('error', " Data Aset Tanah yang dipilih  Gagal dihapus ");
 		}
 		redirect('asset/aset_tanah');
 	}
@@ -198,9 +198,9 @@ class Aset_tanah extends CI_Controller
 				unlink($target_file);
 			}
 			$this->aset_tanah_m->del($id);
-			$this->session->set_flashdata('succes', " Data berhasil di Riwayatkan ");
+			$this->session->set_flashdata('succes', " Data Aset Tanah yang Dipilih Berhasil diriwayatkan ");
 		} else {
-			$this->session->set_flashdata('error', " Data gagal di Riwayatkan ");
+			$this->session->set_flashdata('error', " Data Aset Tanah yang Dipilih Gagal diriwayatkan ");
 		}
 		redirect('asset/aset_tanah');
 	}

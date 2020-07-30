@@ -58,7 +58,7 @@ class Admin extends CI_Controller
 			);
 			$this->template->load('template', 'admin/admin_form', $data);
 		} else {
-			$this->session->set_flashdata('error', " Data tidak ditemukan");
+			$this->session->set_flashdata('error', " Data Admin yang dipilih tidak ditemukan");
 			redirect('admin');
 		}
 	}
@@ -72,37 +72,37 @@ class Admin extends CI_Controller
 			if ($post != null) {
 				$this->admin_m->add($post);
 				if ($this->db->affected_rows() > 0) {
-					$this->session->set_flashdata('succes', " Data berhasil Ditambahkan");
+					$this->session->set_flashdata('succes', " Data Admin Pengelola baru Berhasil ditambahkan");
 					redirect('admin');
 				} else {
-					$this->session->set_flashdata('error', " Data Gagal Ditambahkan");
+					$this->session->set_flashdata('error', " Data Admin Pengelola baru Gagal ditambahkan");
 					redirect('admin/add');
 				}
 			} else {
-				$this->session->set_flashdata('error', " Tidak Ada data yang ditambahkan");
+				$this->session->set_flashdata('error', " Tidak Ada data Admin Pengelola baru yang ditambahkan");
 				redirect('admin/add');
 			}
 		} else if (isset($_POST['edit'])) {
 			if ($post != null) {
 				$this->admin_m->edit($post);
 				if ($this->db->affected_rows() > 0) {
-					$this->session->set_flashdata('succes', " Data berhasil di perbaharui ");
+					$this->session->set_flashdata('succes', " Data Admin Pengelola yang dipilih Berhasil diperbaharui ");
 					redirect('admin');
 				} else {
-					$this->session->set_flashdata('error', " Data Gagal di perbaharui");
+					$this->session->set_flashdata('error', " Data Admin Pengelola yang dipilih Gagal diperbaharui");
 					redirect('admin/edit');
 				}
 			} else {
-				$this->session->set_flashdata('error', " Tidak Ada data yang ditambahkan");
+				$this->session->set_flashdata('error', " Tidak Ada data Admin Pengelola yang diperbaharui");
 				redirect('admin');
 			}
 		} else if (isset($_POST['edit_admin'])) {
 			$this->admin_m->edit_admin($post);
 			if ($this->db->affected_rows() > 0) {
-				$this->session->set_flashdata('succes', "Data berhasil di perbaharui ");
+				$this->session->set_flashdata('succes', "Data Admin Pengelola yang dipilih Berhasil diperbaharui ");
 				redirect('admin');
 			} else {
-				$this->session->set_flashdata('error', "Data Gagal di perbaharui");
+				$this->session->set_flashdata('error', "Data Admin Pengelola yang dipilih Gagal diperbaharui");
 				redirect('admin');
 			}
 		}
@@ -114,9 +114,9 @@ class Admin extends CI_Controller
 		$post = $this->input->post(null, TRUE);
 		$this->admin_m->del($post['id']);
 		if ($this->db->affected_rows() > 0) {
-			$this->session->set_flashdata('succes', " Data berhasil di hapus ");
+			$this->session->set_flashdata('succes', " Data Admin Pengelola yang dipilih berhasil dihapus ");
 		} else {
-			$this->session->set_flashdata('error', " Data gagal di hapus ");
+			$this->session->set_flashdata('error', " Data Admin Pengelola yang dipilih gagal dihapus ");
 		}
 		redirect('admin');
 	}
@@ -156,14 +156,14 @@ class Admin extends CI_Controller
 			}
 			$this->admin_m->profil($post);
 			if ($this->db->affected_rows() > 0) {
-				$this->session->set_flashdata('succes', " Data berhasil di Perbaharui ");
+				$this->session->set_flashdata('succes', " Data Profil Admin Berhasil diperbaharui ");
 				redirect('dashboard');
 			} else {
-				$this->session->set_flashdata('error', " Tidak Ada Data yang Diperbaharui ");
+				$this->session->set_flashdata('error', " Data Profil Admin Gagal diperbaharui ");
 				redirect('dashboard');
 			}
 		} else {
-			$this->session->set_flashdata('error', " Tidak Ada Data yang Diperbaharui ");
+			$this->session->set_flashdata('error', " Tidak ada Data Profil Admin yang diperbaharui ");
 			redirect('dashboard');
 		}
 	}
